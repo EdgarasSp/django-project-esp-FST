@@ -15,12 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-#from todo.views import say_hello    esp was used with say hello
-from todo.views import get_todo_list, add_item
+# below is old way, no need to list
+# from todo.views import get_todo_list, add_item, edit_item
+from todo import views  # this way just says views and attached below
+
 
 urlpatterns = [
+#    path('admin/', admin.site.urls),   # OLD WAY
+#    path('', get_todo_list, name='get_todo_list'),
+#    path('add', add_item, name='add'),
+#    path('edit/<item_id>', edit_item, name='edit'), # add this
     path('admin/', admin.site.urls),
-#    path('hello/', say_hello, name='hello') this was used with HttpResponse
-    path('', get_todo_list, name='get_todo_list'), # NOT  providing url will act as home page
-    path('add', add_item, name='add')
+    path('', views.get_todo_list, name='get_todo_list'),
+    path('add', views.add_item, name='add'),
+    path('edit/<item_id>', views.edit_item, name='edit'),
+    path('toggle/<item_id>', views.toggle_item, name='toggle'),
+    path('delete/<item_id>', views.delete_item, name='delete'),
 ]

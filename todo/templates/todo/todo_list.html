@@ -15,6 +15,21 @@
                 {% else %}
                     <td>{{ item.name }}</td>
                 {% endif %}
+                <td>
+                    <a href="/toggle/{{ item.id }}">  <!-- added this-->
+                        <button>Toggle</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/edit/{{ item.id }}">
+                        <button>Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="/delete/{{ item.id }}"> <!-- added this-->
+                        <button>Delete</button>
+                    </a>
+                </td>
             </tr>
         {% empty %}
             <tr>
