@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#from todo.views import say_hello    esp was used with say hello
+from todo.views import get_todo_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+#    path('hello/', say_hello, name='hello') this was used with HttpResponse
+    path('', get_todo_list, name='get_todo_list') # NOT  providing url will act as home page
 ]
